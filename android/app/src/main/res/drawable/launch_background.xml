@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launch background: solid color + centered logo+text + bottom branding -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Solid color background (replaces old bitmap approach) -->
+    <item android:drawable="@color/splash_bg" />
+
+    <!-- Center: logo + LexVault + tagline -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash" />
+    </item>
+
+    <!-- Bottom accent line -->
+    <item android:bottom="60dp">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/branding" />
+    </item>
+</layer-list>

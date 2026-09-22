@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+: configure both windowBackground and SplashScreen API -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Full design: logo + LexVault + tagline + branding (shown after SplashScreen fades) -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+
+        <!-- SplashScreen API: same background color → invisible transition -->
+        <item name="android:windowSplashScreenBackground">@color/splash_bg</item>
+        <!-- Logo only (will be circular-masked by Android 12+) -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
+        <!-- Bottom accent line -->
+        <item name="android:windowSplashScreenBrandingImage">@drawable/branding</item>
+
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+    </style>
+
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

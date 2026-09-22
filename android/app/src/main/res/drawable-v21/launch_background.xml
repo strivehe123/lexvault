@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- API 21+: same layer-list structure -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_bg" />
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash" />
+    </item>
+
+    <item android:bottom="60dp">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/branding" />
+    </item>
+</layer-list>
