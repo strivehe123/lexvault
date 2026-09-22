@@ -82,7 +82,26 @@ Flutter 写的英语背单词 App · Android 手机 / 平板 · Windows 桌面 �
 
 这是唯一**完整支持**的方式，离线识别、朗读、音效全部可用。
 
-#### 1-a. 自己打一个 APK 装到手机上
+#### 1-a. 直接下载现成的 APK（最省事）
+
+不用装任何开发环境，直接拿编译好的包：
+
+**下载页：<https://github.com/strivehe123/lexvault/releases>**
+
+| 文件 | 适用设备 |
+|---|---|
+| `LexVault-v1.0.0-arm64.apk` | **绝大多数手机 / 平板（2017 年后的机型都行）**，装这个 |
+
+直链（发布后可用）：
+`https://github.com/strivehe123/lexvault/releases/latest/download/LexVault-v1.0.0-arm64.apk`
+
+> **包比较大（约 890 MB）**，因为词库配图和真人发音是**打包在应用里**的 ——
+> 换来的好处是装完**完全离线可用**，不联网、不耗流量。
+> 嫌大就看下一节自己裁剪词库（能砍到十几 MB 到几百 MB 不等）。
+>
+> 这是 arm64 单架构包，不含 32 位老设备和模拟器版本。装不上就往下看。
+
+#### 1-b. 自己打一个 APK 装到手机上
 
 前提：电脑上装好 [Flutter SDK](https://docs.flutter.dev/get-started/install)（`flutter doctor` 全绿）。
 
@@ -107,7 +126,7 @@ flutter build apk --release --split-per-abi
 > 想要能调试的包就 `flutter build apk --debug`，产物是 `app-debug.apk`（体积更大）。
 > 手机已开 USB 调试的话，直接 `flutter install` 更省事。
 
-#### 1-b. 把 APK 传到手机
+#### 1-c. 把 APK 传到手机
 
 随便哪种都行：
 
@@ -123,7 +142,7 @@ flutter build apk --release --split-per-abi
   手机浏览器打开 `http://<电脑的局域网IP>:8000/`，点文件名下载。
   查电脑 IP：Windows 上跑 `ipconfig`，看 IPv4 地址。
 
-#### 1-c. 安装与首次启动
+#### 1-d. 安装与首次启动
 
 1. 在手机「文件管理」里找到 APK，点开安装
 2. 系统提示「禁止安装未知应用」→ 允许当前来源安装（各厂商路径不同，通常在
