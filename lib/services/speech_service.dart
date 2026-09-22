@@ -5,14 +5,16 @@ import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:vosk_flutter/vosk_flutter.dart' as vosk;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../config/iflytek_config.dart';
 
-/// 跟读识别。使用讯飞实时语音转写（大模型版 RTASR）。
+/// 跟读识别。本地优先：Vosk 离线小模型（en-us，16kHz）；
+/// Vosk 不可用时回退讯飞实时语音转写（大模型版 RTASR）。
 ///
 /// 识别结果与目标词做模糊匹配。
-/// 凭证未配置或麦克风不可用时 [available] 为 false，
+/// 麦克风不可用时 [available] 为 false，
 /// 界面会显示"模拟跟读成功 / 失败"按钮，方便桌面调试与无麦克风环境。
 class SpeechService {
   static const _methodCh = MethodChannel('com.vacmaster.vacmaster/audio');
@@ -36,16 +38,29 @@ class SpeechService {
   String _target = '';
   void Function(bool matched, String heard)? _onFinished;
 
+  // ---- Vosk 本地离线识别 ----
+  static const _voskModelAsset =
+      'assets/models/vosk-model-small-en-us-0.15.zip';
+  vosk.Model? _vModel;
+  vosk.Recognizer? _vRecognizer;
+  vosk.SpeechService? _vSpeech;
+  StreamSubscription<String>? _vResultSub;
+  StreamSubscription<String>? _vPartialSub;
+  Future<bool>? _vInitFuture;
+  bool _vReady = false;
+  String _vHeard = ''; // 本次录音 vosk 最近识别文本
+  String _vPartial = ''; // 本次录音 vosk 最近 partial 文本（兜底用）
+  String _engine = ''; // 本次会话引擎: 'vosk' / 'iflytek'
+  int _vPartials = 0; // partial 结果日志节流计数
+
   void _log(String msg) {
     _methodCh.invokeMethod('log', msg);
   }
 
   Future<bool> init() async {
     debugPrint('[STT] init() called, configured=${IflytekConfig.isConfigured}');
-    if (!IflytekConfig.isConfigured) {
-      available = false;
-      return false;
-    }
+    // 后台预加载 Vosk 本地模型（首次启动需解压约 40MB，不阻塞启动）
+    unawaited(_initVosk());
     try {
       var perm = await _methodCh.invokeMethod<bool>('hasPermission');
       // 未授权时主动弹出系统授权框（清数据/首次安装后权限处于拒绝状态）
@@ -84,7 +99,7 @@ class SpeechService {
     required String targetWord,
     required void Function(bool matched, String heard) onFinished,
   }) async {
-    _log('start() available=$available busy=$_busy');
+    _log('start() available=$available busy=$_busy voskReady=$_vReady');
     if (!available || _busy) return;
     _busy = true;
     _ended = false;
@@ -95,6 +110,31 @@ class SpeechService {
     _onFinished = onFinished;
 
     try {
+      // 本地优先：等待 Vosk 就绪（首次启动解压模型可能需要几秒）
+      final voskOk = await _initVosk().timeout(
+        const Duration(seconds: 30),
+        onTimeout: () => false,
+      );
+      if (voskOk) {
+        _engine = 'vosk';
+        // 最长按住 15 秒，超时自动结束（与讯飞路径一致）
+        _startTimeoutTimer = Timer(const Duration(seconds: 15), () {
+          _finishReason = 'vosk max duration (15s)';
+          _log('vosk max duration reached, finishing...');
+          _finish(_matches(_target, _vHeard), _vHeard);
+        });
+        await _startVosk();
+        return;
+      }
+
+      // Vosk 不可用 → 回退讯飞在线识别
+      _engine = 'iflytek';
+      _log('start() vosk unavailable → fallback iFlytek');
+      if (!IflytekConfig.isConfigured) {
+        _log('iflytek not configured, giving up');
+        _finish(false, '');
+        return;
+      }
       _log('start() building auth URL...');
       final url = _buildAuthUrl();
       _log('start() connecting ws... url=${url.substring(0, url.length > 150 ? 150 : url.length)}...');
@@ -137,9 +177,15 @@ class SpeechService {
   }
 
   Future<void> stop() async {
-    _log('stop() called, framesSent=$_framesSent, sessionId=$_sessionId');
+    _log('stop() called, engine=$_engine, framesSent=$_framesSent, sessionId=$_sessionId');
     _startTimeoutTimer?.cancel();
     _startTimeoutTimer = null;
+
+    // Vosk：停麦 + 冲刷识别管线取最终结果
+    if (_engine == 'vosk') {
+      await _stopVoskAndFinish();
+      return;
+    }
 
     // 停止录音，关掉 AudioRecord
     await _audioSub?.cancel();
@@ -165,6 +211,144 @@ class SpeechService {
       _log('result timeout! closing ws...');
       _finish(_matches(_target, _fullText), _fullText);
     });
+  }
+
+  // ---- Vosk 本地识别 ----
+
+  /// 初始化 Vosk（解压模型 → Model → Recognizer → SpeechService）。幂等。
+  Future<bool> _initVosk() => _vInitFuture ??= _doInitVosk();
+
+  Future<bool> _doInitVosk() async {
+    try {
+      final sw = Stopwatch()..start();
+      final loader = vosk.ModelLoader();
+      final modelPath = await loader.loadFromAssets(_voskModelAsset);
+      _log('vosk: model unpacked at ${sw.elapsedMilliseconds}ms -> $modelPath');
+      final plugin = vosk.VoskFlutterPlugin.instance();
+      _vModel = await plugin.createModel(modelPath);
+      _log('vosk: model created at ${sw.elapsedMilliseconds}ms');
+      _vRecognizer =
+          await plugin.createRecognizer(model: _vModel!, sampleRate: 16000);
+      _vSpeech = await plugin.initSpeechService(_vRecognizer!);
+      _vReady = true;
+      _log('vosk: READY (total ${sw.elapsedMilliseconds}ms)');
+    } catch (e) {
+      _log('vosk: init FAILED: $e');
+      debugPrint('[STT] vosk init failed: $e');
+      _vReady = false;
+    }
+    return _vReady;
+  }
+
+  Future<void> _startVosk() async {
+    _vHeard = '';
+    _vPartial = '';
+    _vPartials = 0;
+    _log('vosk: start listening (target="$_target")');
+
+    // 用 grammar 约束识别范围：只识别目标词 + [unk]
+    // 这样 Vosk 不会把 "sun" 听成 "some"——搜索空间被限定到目标词
+    final targetNorm = _norm(_target);
+    try {
+      await _vRecognizer!.setGrammar([targetNorm, '[unk]']);
+      _log('vosk: grammar set to ["$targetNorm", "[unk]"]');
+    } catch (e) {
+      _log('vosk: setGrammar error (will use free recognition): $e');
+    }
+
+    _vResultSub?.cancel();
+    _vResultSub = _vSpeech!.onResult().listen(
+      (jsonStr) {
+        try {
+          final text =
+              ((jsonDecode(jsonStr) as Map<String, dynamic>)['text'] ?? '')
+                  as String;
+          if (text.isNotEmpty && text != '[unk]') {
+            _vHeard = text;
+            _log('vosk result: "$text"');
+          }
+        } catch (_) {}
+      },
+      onError: (Object e) {
+        _finishReason = 'vosk result stream error';
+        _log('vosk stream ERROR: $e');
+        _finish(false, _vHeard);
+      },
+    );
+
+    _vPartialSub?.cancel();
+    _vPartialSub = _vSpeech!.onPartial().listen(
+      (jsonStr) {
+        try {
+          final text =
+              ((jsonDecode(jsonStr) as Map<String, dynamic>)['partial'] ?? '')
+                  as String;
+          if (text.isNotEmpty && text != '[unk]') _vPartial = text;
+        } catch (_) {}
+        if (++_vPartials % 6 == 1) _log('vosk partial: $jsonStr');
+      },
+      onError: (Object e) => _log('vosk partial stream error: $e'),
+    );
+
+    try {
+      await _vSpeech!.reset();
+      await _vSpeech!
+          .start(onRecognitionError: (e) => _log('vosk error event: $e'));
+      _log('vosk: listening started');
+    } catch (e) {
+      _finishReason = 'vosk start failed';
+      _log('vosk start FAILED: $e');
+      _finish(false, '');
+    }
+  }
+
+  Future<void> _stopVoskAndFinish() async {
+    // 先从 recognizer 直接取当前最佳结果（不依赖 stream 事件时序）
+    // [unk] 表示"未命中 grammar"，等同空——留给后续 stream/partial 兜底
+    String heard = _vHeard;
+    try {
+      final curJson = await _vRecognizer!.getResult();
+      final curText =
+          ((jsonDecode(curJson) as Map<String, dynamic>)['text'] ?? '')
+              as String;
+      if (curText.isNotEmpty && curText != '[unk]') heard = curText;
+      _log('vosk getResult: "$curText"');
+    } catch (e) {
+      _log('vosk getResult error: $e');
+    }
+
+    // 停麦
+    try {
+      await _vSpeech?.stop();
+    } catch (e) {
+      _log('vosk stop error: $e');
+    }
+
+    // 等 stream 事件 flush（stop 可能触发最后一次 onResult）
+    await Future.delayed(const Duration(milliseconds: 150));
+    if (_vHeard.isNotEmpty && (heard.isEmpty || heard == '[unk]')) {
+      heard = _vHeard;
+      _log('vosk: picked up stream result after delay: "$heard"');
+    }
+    // partial 兜底：极短录音时 getResult/getFinalResult 都可能为空
+    if ((heard.isEmpty || heard == '[unk]') && _vPartial.isNotEmpty) {
+      heard = _vPartial;
+      _log('vosk: using partial fallback: "$heard"');
+    }
+    // 再冲刷一次取最终结果
+    try {
+      final finalJson = await _vRecognizer!.getFinalResult();
+      final text =
+          ((jsonDecode(finalJson) as Map<String, dynamic>)['text'] ?? '')
+              as String;
+      if (text.isNotEmpty && text != '[unk]') heard = text;
+      _log('vosk getFinalResult: "$text"');
+    } catch (e) {
+      _log('vosk getFinalResult error: $e');
+    }
+    _finishReason = 'vosk stop';
+    _log('vosk final: "$heard" target="$_target"');
+    _finish(_matches(_target, heard), heard);
   }
 
   // ---- 讯飞 WebSocket 通信 ----
@@ -252,7 +436,7 @@ class SpeechService {
     );
   }
 
-  void _finish(bool matched, String heard) {
+  Future<void> _finish(bool matched, String heard) async {
     if (!_busy) return;
     _busy = false;
 
@@ -260,6 +444,18 @@ class SpeechService {
     _startTimeoutTimer = null;
     _resultTimeoutTimer?.cancel();
     _resultTimeoutTimer = null;
+
+    // Vosk 清理：先取消事件监听再停麦
+    _vResultSub?.cancel();
+    _vResultSub = null;
+    _vPartialSub?.cancel();
+    _vPartialSub = null;
+    if (_engine == 'vosk') {
+      try {
+        await _vSpeech?.stop();
+      } catch (_) {}
+    }
+
     _audioSub?.cancel();
     _audioSub = null;
     _wsSub?.cancel();

@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.5.5
   audioplayers: ^6.7.1
   collection: ^1.19.1
+  vosk_flutter: ^0.3.48
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,14 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
   flutter_native_splash: ^2.4.3
+
+# vosk_flutter 0.3.48 钉死旧版 permission_handler（^10.4.5），其 android 端
+# 10.3.6 仍引用已被 Flutter 移除的 v1 embedding Registrar，编译必然失败。
+# vosk 仅在 Dart 层调用 Permission.microphone.status/request，13.x 完全兼容。
+# 14.x 需要 AGP 9 / compileSdk 37 / Kotlin 2.3.20，超出本项目工具链，故钉 13.0.1。
+dependency_overrides:
+  permission_handler: ^13.0.2
+  permission_handler_android: 13.0.1
 
 # ── Native splash screen (方案A: 全屏紫蓝渐变 + 居中 logo + 底部细线) ──
 flutter_native_splash:
@@ -86,6 +95,8 @@ flutter:
     - assets/audio/pet/
     - assets/images/ket/
     - assets/audio/ket/
+    # Vosk 离线语音识别模型（en-us small，首启自动解压到应用目录）
+    - assets/models/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
