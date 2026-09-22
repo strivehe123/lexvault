@@ -53,9 +53,15 @@ app.*.map.json
 /*.png
 /*.txt
 /*.pcm
-/ui_*.xml
+/ui*.xml
 /_brand_backup_*/
 
-# 敏感配置（讯飞 API 密钥等，不提交到远程仓库）
-lib/config/iflytek_config.dart
+# 编译期注入的密钥文件（--dart-define-from-file 用）。
+# ⚠️ 真实密钥只允许放在这类被忽略的文件里，或直接写在命令行上。
+/keys.json
+*.keys.json
+
+# 说明：lib/config/iflytek_config.dart 是**受版本控制的空模板**，
+# 它只从 --dart-define 取值，本身不含密钥，所以这里不再忽略它。
+# 详见该文件顶部注释与 README「语音识别」一节。
 
