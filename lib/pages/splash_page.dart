@@ -74,7 +74,20 @@ class SplashPage extends StatelessWidget {
       value: SystemUiOverlayStyle.light,
       // 不用 Scaffold：要的是"整屏"坐标系。
       // Scaffold 的 body 会被状态栏/导航栏内边距影响，标记就对不准系统启动页了。
-      child: ColoredBox(
+      //
+      // ⚠️ 但**必须用 Material 兜住**（它不是可有可无的装饰）。
+      // 踩过：这里原来是 ColoredBox，Text 就没有任何 DefaultTextStyle 祖先，
+      // 于是回落到 `WidgetsApp._errorTextStyle` —— 那套样式带
+      //   fontFamily: 'monospace'
+      //   decoration: TextDecoration.underline
+      //   decorationColor: Color(0xFFFFFF00)      ← 纯黄
+      //   decorationStyle: TextDecorationStyle.double
+      // 自己写了的 color/fontSize 盖得住它，**decoration 和 fontFamily 盖不住**，
+      // 真机冷启动看到的就是"字标变等宽体 + 底下两条黄线"。
+      // 两路验证过：设备端 screencap 连拍 + screenrecord 录屏都复现，
+      // 离线 widget 测试按像素查也能复现（见 test/splash_page_test.dart）。
+      // Material 同时给背景色和主题文字样式，一举两得。
+      child: Material(
         color: AppColors.splashBg,
         child: LayoutBuilder(
           builder: (context, c) {
@@ -147,6 +160,9 @@ class _Lockup extends StatelessWidget {
               color: Colors.white,
               height: 1.0,
               letterSpacing: -1.2,
+              // 显式关掉下划线。就算哪天外层把 Material 拿掉了，
+              // 也不会再把 _errorTextStyle 的黄双线继承进来。
+              decoration: TextDecoration.none,
             ),
           ),
           const SizedBox(height: _gapTag),
@@ -162,6 +178,7 @@ class _Lockup extends StatelessWidget {
               color: Colors.white.withValues(alpha: 0.85),
               height: 1.2,
               letterSpacing: 0.1,
+              decoration: TextDecoration.none,
             ),
           ),
         ],

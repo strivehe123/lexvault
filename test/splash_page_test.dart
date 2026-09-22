@@ -62,17 +62,43 @@ Future<void> _pump(WidgetTester tester, {GlobalKey? boundaryKey}) async {
   final app = MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(useMaterial3: true, fontFamily: 'Roboto'),
-    // ⚠️ 这层 Material 是为了让 Text 拿到主题字体。
-    // Text 没有 Material 祖先时，DefaultTextStyle 走的是 WidgetsApp 的兜底样式
-    // （不含 fontFamily），测试环境于是回落到"方块字体"，每字 1em ——
-    // 导出的渲染图会看到字宽翻倍，误以为是排版错了。
-    // 真机上没这个问题（family 为 null → 平台默认 Roboto）。
-    home: const Material(type: MaterialType.transparency, child: SplashPage()),
+    // ⚠️ 这里**故意不加** `Material(...)` 包裹 —— 要和真机跑同一棵树。
+    //
+    // 踩过（真机才发现）：早先这里包了 `Material(type: MaterialType.transparency)`，
+    // 为了"让 Text 拿到主题字体"。结果把 bug 遮住了 —— 真机 `SplashPage` 根本没有
+    // Material 祖先，Text 回落到 `WidgetsApp._errorTextStyle`，那套样式带
+    // `fontFamily: 'monospace'` + `decoration: underline` +
+    // `decorationColor: Color(0xFFFFFF00)`（纯黄）+`TextDecorationStyle.double`。
+    // 我显式写的 color/fontSize 盖住了它，decoration 和 fontFamily 却继承下来，
+    // 真机上就是"字标变等宽体 + 底下两条黄线"。
+    //
+    // 所以：**测试的包裹层级必须和真机一致**，否则测了个假的东西。
+    // SplashPage 自己带 Material（见 splash_page.dart），这里就不用再包。
+    home: const SplashPage(),
   );
   await tester.pumpWidget(
     boundaryKey == null ? app : RepaintBoundary(key: boundaryKey, child: app),
   );
   await tester.pumpAndSettle(); // 等进场动画（320ms）跑完
+}
+
+/// 渲染成真机像素并返回 RGB 数组，用于按颜色做断言。
+Future<List<List<List<int>>>> _renderRgb(WidgetTester tester) async {
+  final key = GlobalKey();
+  await _pump(tester, boundaryKey: key);
+  final boundary =
+      key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+  final img = await tester.runAsync(() => boundary.toImage(pixelRatio: kDpr));
+  final data = await tester.runAsync(
+      () => img!.toByteData(format: ui.ImageByteFormat.rawRgba));
+  final bytes = data!.buffer.asUint8List();
+  final w = img!.width, h = img.height;
+  final rgb = List.generate(
+      h, (y) => List.generate(w, (x) {
+            final i = (y * w + x) * 4;
+            return [bytes[i], bytes[i + 1], bytes[i + 2]];
+          }));
+  return rgb;
 }
 
 void main() {
@@ -130,5 +156,43 @@ void main() {
     out.writeAsBytesSync(bytes!);
     expect(out.lengthSync() > 3000, isTrue);
     debugPrint('渲染图 → ${out.absolute.path}');
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 回归：字标底下不能出现"黄双下划线"
+  //
+  // 这是真机上抓出来的 bug（冷启动连拍 + 录屏两条通道都复现）：
+  // SplashPage 当时没有 Material 祖先，Text 落到 `WidgetsApp._errorTextStyle`，
+  // 那套样式带 `decorationColor: Color(0xFFFFFF00)`（纯黄）+
+  // `TextDecorationStyle.double` + `fontFamily: 'monospace'`。
+  // 表现＝字标变成等宽体、下面压两条黄线。
+  //
+  // 这个断言必须**按像素**查：布局断言全过（黄线不参与布局），
+  // 只有看颜色才抓得到。阈值取 0 —— 设计里除了白和 #4D7CFF 没有别的颜色，
+  // 出现任何高饱和黄都是错的。
+  // ═══════════════════════════════════════════════════════════════════
+  testWidgets('字标 / 副标不能继承 WidgetsApp 的黄双下划线', (tester) async {
+    final rgb = await _renderRgb(tester);
+
+    var yellow = 0;
+    int? yMin, yMax;
+    for (var y = 0; y < rgb.length; y++) {
+      for (final px in rgb[y]) {
+        if (px[0] > 200 && px[1] > 200 && px[2] < 100) {
+          yellow++;
+          yMin ??= y;
+          yMax = y;
+        }
+      }
+    }
+
+    expect(
+      yellow,
+      0,
+      reason: '出现 $yellow 个黄像素'
+          '${yMin != null ? "（y=$yMin..$yMax）" : ""}'
+          ' —— Text 又拿不到 Material 的 DefaultTextStyle 了，'
+          '落回了 WidgetsApp 的 _errorTextStyle',
+    );
   });
 }

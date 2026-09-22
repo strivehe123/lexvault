@@ -1,0 +1,1098 @@
+{
+  "id": "a1",
+  "name": "A1",
+  "fullName": "CEFR A1 入门词汇",
+  "badge": "CEFR",
+  "description": "CEFR A1 入门级核心词，适合英语零基础起步。",
+  "dailyWords": 5,
+  "gradient": [
+    "0xFF10B981",
+    "0xFF34D399"
+  ],
+  "words": [
+    {
+      "word": "six",
+      "phonetic": "sɪks",
+      "pos": "number",
+      "chinese": "六",
+      "definition": "the number 6",
+      "examples": [
+        "Look for a bus with a number six on the front of it.; \"How many grandchildren do you have now?\" \"I've got six (grandchildren).\"; My place [has] six rooms."
+      ],
+      "image": "assets/images/a1/six.webp",
+      "audio": "assets/audio/a1/six.mp3"
+    },
+    {
+      "word": "come from",
+      "phonetic": "/kʌm frɒm/",
+      "pos": "phrasal verb",
+      "chinese": "来自",
+      "definition": "to be born, got from, or made in a particular place",
+      "examples": [
+        "She comes from Italy.; Where do you come from?; Some of the best wines come from France.; Does that quote come from Shakespeare?; She could hear banging coming from the room upstairs."
+      ],
+      "image": "assets/images/a1/come_from.webp",
+      "audio": "assets/audio/a1/come_from.mp3"
+    },
+    {
+      "word": "nationality",
+      "phonetic": "ˌnæʃ.ənˈæl.ə.ti",
+      "pos": "noun",
+      "chinese": "国籍",
+      "definition": "If you have American/British/Swiss, etc. nationality, you are legally a member of that country.",
+      "examples": [
+        "She has British nationality.; He has dual nationality.; What nationality are you?; At the International School they have pupils of 46 different nationalities.; My friend [was] born in Norway, but his nationality is Polish."
+      ],
+      "image": "assets/images/a1/nationality.webp",
+      "audio": "assets/audio/a1/nationality.mp3"
+    },
+    {
+      "word": "a.m.",
+      "phonetic": "ˌeɪˈem",
+      "pos": "adverb",
+      "chinese": "上午",
+      "definition": "used to refer to a time between twelve o'clock at night and twelve o'clock in the middle of the day",
+      "examples": [
+        "We're open between 9 a.m.",
+        "and 5 p.m.",
+        "daily.; The first election results are expected around 1 a.m.; I go to college [from] 9.15 a.m.",
+        "to 12.15 p.m."
+      ],
+      "image": "assets/images/a1/am.webp",
+      "audio": "assets/audio/a1/am.mp3"
+    },
+    {
+      "word": "thirteen",
+      "phonetic": "θɜːˈtiːn",
+      "pos": "number",
+      "chinese": "十三",
+      "definition": "the number 13",
+      "examples": [
+        "eleven, twelve, thirteen, fourteen; Some people think that thirteen is an unlucky number.; Dear Joshua, I'm writing to tell you that I am now thirteen Years old."
+      ],
+      "image": "assets/images/a1/thirteen.webp",
+      "audio": "assets/audio/a1/thirteen.mp3"
+    },
+    {
+      "word": "that's fine",
+      "phonetic": "/ðæts faɪn/",
+      "pos": "phrase",
+      "chinese": "好的",
+      "definition": "used to agree with a suggestion, idea, etc.",
+      "examples": [
+        "\"Shall we meet at 8 o'clock?\" \"Yes, that's fine.\"; OK that's fine.",
+        "We['ll] meet at 8pm."
+      ],
+      "image": "assets/images/a1/that's_fine.webp",
+      "audio": "assets/audio/a1/that's_fine.mp3"
+    },
+    {
+      "word": "Don't forget",
+      "phonetic": "/dəʊnt fəˈɡɛt .../",
+      "pos": "phrase",
+      "chinese": "别忘了",
+      "definition": "remember",
+      "examples": [
+        "Don't forget your homework!; Don't forget to lock the door.; Don't forget that classes start at 2.0 this afternoon.; And please don't forget the des[s]ert!"
+      ],
+      "image": "assets/images/a1/don't_forget.webp",
+      "audio": "assets/audio/a1/don't_forget.mp3"
+    },
+    {
+      "word": "get here",
+      "phonetic": "/ɡɛt hɪə/",
+      "pos": "phrase",
+      "chinese": "到达",
+      "definition": "to reach or arrive at a particular place",
+      "examples": [
+        "We got home later than usual.; I didn't get to work till nine o'clock.; I had a good time at your house last night but when I got home I realized I had forg[o]tten my bag!"
+      ],
+      "image": "assets/images/a1/get_here.webp",
+      "audio": "assets/audio/a1/get_here.mp3"
+    },
+    {
+      "word": "mobile",
+      "phonetic": "ˈməʊ.baɪl",
+      "pos": "noun",
+      "chinese": "手机",
+      "definition": "a mobile phone",
+      "examples": [
+        "Can I use your mobile?; It's a very modern mobile, it's [a] Nokia and it's made in Finland."
+      ],
+      "image": "assets/images/a1/mobile.webp",
+      "audio": "assets/audio/a1/mobile.mp3"
+    },
+    {
+      "word": "good night",
+      "phonetic": "ˌgʊdˈnaɪt",
+      "pos": "exclamation",
+      "chinese": "晚安",
+      "definition": "something you say when you leave someone or they leave you in the evening, or when you are going to bed",
+      "examples": [
+        "Good night, everyone - I'm off to bed."
+      ],
+      "image": "assets/images/a1/good_night.webp",
+      "audio": "assets/audio/a1/good_night.mp3"
+    },
+    {
+      "word": "nineteen",
+      "phonetic": "ˌnaɪnˈtiːn",
+      "pos": "number",
+      "chinese": "十九",
+      "definition": "the number 19",
+      "examples": [
+        "eighteen, nineteen, twenty; Her daughter is nineteen.; I [had a] birthday [party] in my house when I [became] nineteen."
+      ],
+      "image": "assets/images/a1/nineteen.webp",
+      "audio": "assets/audio/a1/nineteen.mp3"
+    },
+    {
+      "word": "p.m.",
+      "phonetic": "ˌpiːˈem",
+      "pos": "adverb",
+      "chinese": "下午",
+      "definition": "used to refer to a time after midday but before midnight",
+      "examples": [
+        "We'll be arriving at about 4.30 p.m.; The 6 p.m.",
+        "train is usually very crowded.; See you tomorrow at 7 p.m."
+      ],
+      "image": "assets/images/a1/pm.webp",
+      "audio": "assets/audio/a1/pm.mp3"
+    },
+    {
+      "word": "the Internet",
+      "phonetic": "ˈɪn.tə.net",
+      "pos": "noun",
+      "chinese": "互联网",
+      "definition": "the system that connects computers all over the world and allows people who use computers to look at websites ",
+      "examples": [
+        "I found out about the book on the Internet.; a company that provides cheap Internet access; She uses the Internet every day."
+      ],
+      "image": "assets/images/a1/the_internet.webp",
+      "audio": "assets/audio/a1/the_internet.mp3"
+    },
+    {
+      "word": "eleven",
+      "phonetic": "ɪˈlev.ən",
+      "pos": "number",
+      "chinese": "十一",
+      "definition": "the number 11",
+      "examples": [
+        "nine, ten, eleven, twelve; There are eleven girls in my class and fifteen boys.; I invited ten or eleven friends."
+      ],
+      "image": "assets/images/a1/eleven.webp",
+      "audio": "assets/audio/a1/eleven.mp3"
+    },
+    {
+      "word": "sixteen",
+      "phonetic": "ˌsɪkˈstiːn",
+      "pos": "number",
+      "chinese": "十六",
+      "definition": "the number 16",
+      "examples": [
+        "fourteen, fifteen, sixteen, seventeen; We've got sixteen (people) coming for lunch.; Hi!",
+        "My name is Ian and I'm sixteen years old."
+      ],
+      "image": "assets/images/a1/sixteen.webp",
+      "audio": "assets/audio/a1/sixteen.mp3"
+    },
+    {
+      "word": "see you soon",
+      "phonetic": "/siː juː suːn/",
+      "pos": "phrase",
+      "chinese": "很快见",
+      "definition": "used for saying goodbye to someone you are going to meet again soon",
+      "examples": [
+        "I'll see you soon!; See you soon."
+      ],
+      "image": "assets/images/a1/see_you_soon.webp",
+      "audio": "assets/audio/a1/see_you_soon.mp3"
+    },
+    {
+      "word": "take a picture",
+      "phonetic": "/teɪk ə ˈpɪk.tʃər/",
+      "pos": "phrase",
+      "chinese": "拍照",
+      "definition": "to photograph someone or something",
+      "examples": [
+        "Did you take any pictures of the sunset?; She took some great photos of the children.; He had his photograph taken by a professional.; Sometimes I take photos [of] them and I feed these bird[s]."
+      ],
+      "image": "assets/images/a1/take_a_picture.webp",
+      "audio": "assets/audio/a1/take_a_picture.mp3"
+    },
+    {
+      "word": "very much",
+      "phonetic": "/ˈvɛr.i mʌtʃ/",
+      "pos": "phrase",
+      "chinese": "非常",
+      "definition": "to a large amount or degree",
+      "examples": [
+        "Thank you very much for the flowers!; I like her very much.; I like Bradford very much."
+      ],
+      "image": "assets/images/a1/very_much.webp",
+      "audio": "assets/audio/a1/very_much.mp3"
+    },
+    {
+      "word": "pig",
+      "phonetic": "pɪg",
+      "pos": "noun",
+      "chinese": "猪",
+      "definition": "a large pink, brown or black farm animal with short legs and a curved tail, kept for its meat",
+      "examples": [
+        "The meat produced from a pig is called pork, bacon or ham.; a pig farm; There is a small pink pig on it."
+      ],
+      "image": "assets/images/a1/pig.webp",
+      "audio": "assets/audio/a1/pig.mp3"
+    },
+    {
+      "word": "seven",
+      "phonetic": "ˈsev.ən",
+      "pos": "number",
+      "chinese": "七",
+      "definition": "the number 7",
+      "examples": [
+        "The restaurant opens for dinner at seven o'clock.; We're open seven days a week.; Tomorrow I'll finish my work at six o'clock, so I think that I'll can arrive your home at seven o'clock."
+      ],
+      "image": "assets/images/a1/seven.webp",
+      "audio": "assets/audio/a1/seven.mp3"
+    },
+    {
+      "word": "people",
+      "phonetic": "ˈpiː.pl ̩",
+      "pos": "noun",
+      "chinese": "人们",
+      "definition": "more than one person",
+      "examples": [
+        "Many people never take any exercise.; We've invited thirty people to our party.; I like this place because there are many shops around and many people."
+      ],
+      "image": "assets/images/a1/people.webp",
+      "audio": "assets/audio/a1/people.mp3"
+    },
+    {
+      "word": "wine",
+      "phonetic": "waɪn",
+      "pos": "noun",
+      "chinese": "葡萄酒",
+      "definition": "an alcoholic drink which is usually made from grapes, or sometimes from other fruit",
+      "examples": [
+        "a wine cellar/glass; red/white/dry/sweet/sparkling wine; Shall we have a bottle/glass of wine with dinner?; I love Australian wines, especially the white wines.; Would you like to see the wine list, sir?"
+      ],
+      "image": "assets/images/a1/wine.webp",
+      "audio": "assets/audio/a1/wine.mp3"
+    },
+    {
+      "word": "too small",
+      "phonetic": "/tuː smɔːl/",
+      "pos": "phrase",
+      "chinese": "过于",
+      "definition": "used before adjectives and adverbs to mean 'more than is allowed, necessary, possible, etc.'",
+      "examples": [
+        "Do you think this jacket is too big for me?;  There are too many cars on the roads these days.",
+        ";  We enjoyed the film but it was much too long.",
+        "; There were far too many people for such a small room.; [Maths] is too hard for me sometimes."
+      ],
+      "image": "assets/images/a1/too_small.webp",
+      "audio": "assets/audio/a1/too_small.mp3"
+    },
+    {
+      "word": "television",
+      "phonetic": "ˈtel.ɪ.vɪʒ.ən",
+      "pos": "noun",
+      "chinese": "电视机",
+      "definition": "a piece of equipment in the shape of a box, with a screen on the front, used for watching programmes",
+      "examples": [
+        "a flat-screen television; Could you turn the television down?; I want to sell my small television."
+      ],
+      "image": "assets/images/a1/television.webp",
+      "audio": "assets/audio/a1/television.mp3"
+    },
+    {
+      "word": "half past",
+      "phonetic": "/hɑːf pɑːst/",
+      "pos": "phrase",
+      "chinese": "一点半等",
+      "definition": "30 minutes past one o'clock/two o'clock/three o'clock, etc.",
+      "examples": [
+        "We got back to our hotel at half past seven.",
+        "; I start college at half past nine."
+      ],
+      "image": "assets/images/a1/half_past.webp",
+      "audio": "assets/audio/a1/half_past.mp3"
+    },
+    {
+      "word": "child",
+      "phonetic": "tʃaɪld",
+      "pos": "noun",
+      "chinese": "儿童",
+      "definition": "a boy or girl who is not yet an adult, or a son or daughter of any age",
+      "examples": [
+        "an eight-year-old child; As a child I didn't eat vegetables.; A small group of children waited outside the door.; Both her children are now married with children of their own.; Jan is married with three young children."
+      ],
+      "image": "assets/images/a1/child.webp",
+      "audio": "assets/audio/a1/child.mp3"
+    },
+    {
+      "word": "life",
+      "phonetic": "laɪf",
+      "pos": "noun",
+      "chinese": "生命",
+      "definition": "the time between a person's birth and their death",
+      "examples": [
+        "Life's too short to worry about money!; I'm not sure I want to spend the rest of my life with him.; Unfortunately, accidents are part of life.; He doesn't know what he really wants in/out of life.; He lost his life in the Great War."
+      ],
+      "image": "assets/images/a1/life.webp",
+      "audio": "assets/audio/a1/life.mp3"
+    },
+    {
+      "word": "things",
+      "phonetic": "/θɪŋz/",
+      "pos": "phrase",
+      "chinese": "东西",
+      "definition": "your possessions or a set of objects",
+      "examples": [
+        "I'll just get my things together and we can go.; All their things were destroyed in the fire.; Bring your swimming things if the weather's nice.; I like this place because the people are happy to work for example [on] a farm and they don't need a lot of things [to] be happy."
+      ],
+      "image": "assets/images/a1/things.webp",
+      "audio": "assets/audio/a1/things.mp3"
+    },
+    {
+      "word": "good for you",
+      "phonetic": "/ɡʊd fə juː/",
+      "pos": "phrase",
+      "chinese": "有益的",
+      "definition": "making you healthy or happy",
+      "examples": [
+        "Swimming is really good for you.; It's good for you to eat plenty of vegetables.; I think playing basketball is good for you."
+      ],
+      "image": "assets/images/a1/good_for_you.webp",
+      "audio": "assets/audio/a1/good_for_you.mp3"
+    },
+    {
+      "word": "need to do something",
+      "phonetic": "/niːd tuː duː ˈsʌmθɪŋ/",
+      "pos": "phrase",
+      "chinese": "必须做",
+      "definition": "If you need to do something, it is necessary to do it.",
+      "examples": [
+        "I need to do some shopping on my way home from work.",
+        "I need to go to the toilet.",
+        "Do we need to go with her?",
+        "I need to learn English."
+      ],
+      "image": "assets/images/a1/need_to_do_something.webp",
+      "audio": "assets/audio/a1/need_to_do_something.mp3"
+    },
+    {
+      "word": "smoke",
+      "phonetic": "sməʊk",
+      "pos": "verb",
+      "chinese": "吸烟",
+      "definition": "to breathe smoke into your mouth from a cigarette",
+      "examples": [
+        "Do you mind if I smoke?; I used to smoke a packet of cigarettes a day.; I like the pause between lesson[s].",
+        "We go outside [to] smoke and fool about."
+      ],
+      "image": "assets/images/a1/smoke.webp",
+      "audio": "assets/audio/a1/smoke.mp3"
+    },
+    {
+      "word": "mobile phone",
+      "phonetic": "ˌməʊ.baɪlˈfəʊn",
+      "pos": "noun",
+      "chinese": "手机",
+      "definition": "a telephone that you can carry everywhere with you",
+      "examples": [
+        "I've left my mobile phone at home.; I'm very happy because I bought a new mobile phone."
+      ],
+      "image": "assets/images/a1/mobile_phone.webp",
+      "audio": "assets/audio/a1/mobile_phone.mp3"
+    },
+    {
+      "word": "man",
+      "phonetic": "mæn",
+      "pos": "noun",
+      "chinese": "男人",
+      "definition": "an adult male human being",
+      "examples": [
+        "a young/tall man; men and women; the man in the green jacket; the men's 400 metres champion; He's a very good man."
+      ],
+      "image": "assets/images/a1/man.webp",
+      "audio": "assets/audio/a1/man.mp3"
+    },
+    {
+      "word": "Would you like",
+      "phonetic": "/wʊd juː laɪk/",
+      "pos": "phrase",
+      "chinese": "你想要……吗？",
+      "definition": "used to ask someone if they want something",
+      "examples": [
+        "Would you like a drink?; Would you like to eat now?; Would you like to come?"
+      ],
+      "image": "assets/images/a1/would_you_like.webp",
+      "audio": "assets/audio/a1/would_you_like.mp3"
+    },
+    {
+      "word": "note",
+      "phonetic": "nəʊt",
+      "pos": "noun",
+      "chinese": "短条",
+      "definition": "a short letter",
+      "examples": [
+        "He left a note to say he would be home late.; Did you get my note?; There's a note pinned to the door saying when the shop will open again.; Hi Rie Thank you for your note to me!"
+      ],
+      "image": "assets/images/a1/note.webp",
+      "audio": "assets/audio/a1/note.mp3"
+    },
+    {
+      "word": "TV",
+      "phonetic": "ˌtiːˈviː",
+      "pos": "noun",
+      "chinese": "电视",
+      "definition": "television",
+      "examples": [
+        "What's on TV tonight?; You watch too much TV!; We ate in front of the TV.; TV personalities; She watch[e]s TV every evening."
+      ],
+      "image": "assets/images/a1/tv.webp",
+      "audio": "assets/audio/a1/tv.mp3"
+    },
+    {
+      "word": "dancing",
+      "phonetic": "ˈdɑːnt.sɪŋ",
+      "pos": "noun",
+      "chinese": "舞蹈",
+      "definition": "the activity of moving your feet and your body to the rhythm of music",
+      "examples": [
+        "Shall we go dancing tonight?; He likes football, dancing, and snowboarding."
+      ],
+      "image": "assets/images/a1/dancing.webp",
+      "audio": "assets/audio/a1/dancing.mp3"
+    },
+    {
+      "word": "last night",
+      "phonetic": "/lɑːst naɪt/",
+      "pos": "phrase",
+      "chinese": "昨晚",
+      "definition": "the evening or night that has just passed",
+      "examples": [
+        "I didn't sleep well last night.; Did you go out last night?; I think I left my coat in your house last night."
+      ],
+      "image": "assets/images/a1/last_night.webp",
+      "audio": "assets/audio/a1/last_night.mp3"
+    },
+    {
+      "word": "for example",
+      "phonetic": "/fə ɪɡˈzɑːmpl/",
+      "pos": "phrase",
+      "chinese": "例如",
+      "definition": "used to give an example of the type of thing you mean",
+      "examples": [
+        "I like soft fruit, for example, peaches and plums.; Some people, students for example, can get cheaper tickets.; Also he likes to do sports, for example swimming and c[ycl]ing."
+      ],
+      "image": "assets/images/a1/for_example.webp",
+      "audio": "assets/audio/a1/for_example.mp3"
+    },
+    {
+      "word": "eighteen",
+      "phonetic": "eɪˈtiːn",
+      "pos": "number",
+      "chinese": "十八",
+      "definition": "the number 18",
+      "examples": [
+        "seventeen, eighteen, nineteen; an eighteen-storey building; I want to sell a bike.",
+        "It is eighteen years old."
+      ],
+      "image": "assets/images/a1/eighteen.webp",
+      "audio": "assets/audio/a1/eighteen.mp3"
+    },
+    {
+      "word": "test",
+      "phonetic": "test",
+      "pos": "noun",
+      "chinese": "测验",
+      "definition": "a set of questions to measure someone's knowledge or ability",
+      "examples": [
+        "She had to take an aptitude test as part of the interview.; He passed/failed the written test.; I do writing, spelling test[s], speaking, etc."
+      ],
+      "image": "assets/images/a1/test.webp",
+      "audio": "assets/audio/a1/test.mp3"
+    },
+    {
+      "word": "the present",
+      "phonetic": "/ðə ˈprɛz.ənt/",
+      "pos": "phrase",
+      "chinese": "现在时",
+      "definition": "the form of the verb which is used to show what happens or exists now",
+      "examples": [
+        "All the verbs in this text are in the present."
+      ],
+      "image": "assets/images/a1/the_present.webp",
+      "audio": "assets/audio/a1/the_present.mp3"
+    },
+    {
+      "word": "possible",
+      "phonetic": "ˈpɒs.ə.bl ̩",
+      "pos": "adjective",
+      "chinese": "可能的",
+      "definition": "If something is possible, it can happen or be done.",
+      "examples": [
+        "Is it possible to speak to the manager please?; Please send it today, if possible.; Is it possible to buy tickets in advance?; If possible, I would like to eat lasagne, because I love Italian food."
+      ],
+      "image": "assets/images/a1/possible.webp",
+      "audio": "assets/audio/a1/possible.mp3"
+    },
+    {
+      "word": "CD player",
+      "phonetic": "ˌsiːˈdiːˌpleɪ.ər",
+      "pos": "noun",
+      "chinese": "光盘播放机",
+      "definition": "a machine that is used for playing music CDs ",
+      "examples": [
+        "She has a CD player in her bedroom.; My cousin bought me a CD player and I got a box of chocolate[s] from my friends."
+      ],
+      "image": "assets/images/a1/cd_player.webp",
+      "audio": "assets/audio/a1/cd_player.mp3"
+    },
+    {
+      "word": "How are you",
+      "phonetic": "/haʊ ɑː juː/",
+      "pos": "phrase",
+      "chinese": "你好吗？",
+      "definition": "used to ask someone if they are well and happy",
+      "examples": [
+        "\"Hi, Lucy, how are you?\" \"Fine, thanks, how are you?\"; Dear Ramesh, How are you?"
+      ],
+      "image": "assets/images/a1/how_are_you.webp",
+      "audio": "assets/audio/a1/how_are_you.mp3"
+    },
+    {
+      "word": "three",
+      "phonetic": "θriː",
+      "pos": "number",
+      "chinese": "三",
+      "definition": "the number 3",
+      "examples": [
+        "I've got three sisters.; School finishes at three o'clock.; I have three daughters."
+      ],
+      "image": "assets/images/a1/three.webp",
+      "audio": "assets/audio/a1/three.mp3"
+    },
+    {
+      "word": "as well",
+      "phonetic": "/əz wɛl/",
+      "pos": "phrase",
+      "chinese": "也",
+      "definition": "also",
+      "examples": [
+        "Are you going to invite Steve as well?; Dylma goes to school every day and work[s] as well."
+      ],
+      "image": "assets/images/a1/as_well.webp",
+      "audio": "assets/audio/a1/as_well.mp3"
+    },
+    {
+      "word": "don't worry about something",
+      "phonetic": "/dəʊnt ˈwʌri (əˈbaʊt ˈsʌmθɪŋ)/",
+      "pos": "phrase",
+      "chinese": "别担心",
+      "definition": "used to tell someone that they do not need to think about something or do anything about something",
+      "examples": [
+        "Don't worry - she'll be all right.; Don't worry about phoning Ian - I'll do it later.; Don't worry about dinner, because I eat everything."
+      ],
+      "image": "assets/images/a1/don't_worry_about_something.webp",
+      "audio": "assets/audio/a1/don't_worry_about_something.mp3"
+    },
+    {
+      "word": "live in",
+      "phonetic": "/lɪv ɪn/",
+      "pos": "phrase",
+      "chinese": "居住",
+      "definition": "to have your home somewhere",
+      "examples": [
+        "Where do you live?; We live in London.; Some students live on the University campus.; He lives with four other people in a shared house.; I live in Springfield."
+      ],
+      "audio": "assets/audio/a1/live_in.mp3"
+    },
+    {
+      "word": "person",
+      "phonetic": "ˈpɜː.sən",
+      "pos": "noun",
+      "chinese": "人",
+      "definition": "a human being",
+      "examples": [
+        "He's a very dangerous person.; You're the only person I know at this party.; Who was the first person to swim the English Channel?; A meal at the restaurant costs about £35 per person.; She's [a] very good person.",
+        "I really like my friends."
+      ],
+      "image": "assets/images/a1/person.webp",
+      "audio": "assets/audio/a1/person.mp3"
+    },
+    {
+      "word": "foot",
+      "phonetic": "fʊt",
+      "pos": "noun",
+      "chinese": "脚",
+      "definition": "one of the two flat parts on the ends of your legs that you stand on",
+      "examples": [
+        "I've hurt my left foot.;  bare feet; Then, in just a few minutes, we are going to put our feet in the hot sand."
+      ],
+      "image": "assets/images/a1/foot.webp",
+      "audio": "assets/audio/a1/foot.mp3"
+    },
+    {
+      "word": "twelve",
+      "phonetic": "twelv",
+      "pos": "number",
+      "chinese": "十二",
+      "definition": "the number 12",
+      "examples": [
+        "ten, eleven, twelve, thirteen; a twelve-seater minibus; We can start at twelve o'clock."
+      ],
+      "image": "assets/images/a1/twelve.webp",
+      "audio": "assets/audio/a1/twelve.mp3"
+    },
+    {
+      "word": "four",
+      "phonetic": "fɔːr",
+      "pos": "number",
+      "chinese": "四",
+      "definition": "the number 4",
+      "examples": [
+        "Most animals have four legs.; We need four people to make up a team.; He works four days and has four days off."
+      ],
+      "image": "assets/images/a1/four.webp",
+      "audio": "assets/audio/a1/four.mp3"
+    },
+    {
+      "word": "be years old",
+      "phonetic": "/biː ... jɪəz əʊld/",
+      "pos": "phrase",
+      "chinese": "...岁",
+      "definition": "to be a particular age",
+      "examples": [
+        "Her son is six years old.; He is 53 years old [and] he live[s] in Madeira."
+      ],
+      "image": "assets/images/a1/be_years_old.webp",
+      "audio": "assets/audio/a1/be_years_old.mp3"
+    },
+    {
+      "word": "beer",
+      "phonetic": "bɪər",
+      "pos": "noun",
+      "chinese": "啤酒",
+      "definition": "an alcoholic drink made from grain",
+      "examples": [
+        "a pint of beer; Would you like another beer?; This beer is brewed in Mexico.; She likes drink[ing] beer and sometimes goes to the nightclub."
+      ],
+      "image": "assets/images/a1/beer.webp",
+      "audio": "assets/audio/a1/beer.mp3"
+    },
+    {
+      "word": "slim",
+      "phonetic": "slɪm",
+      "pos": "adjective",
+      "chinese": "苗条的",
+      "definition": "Someone who is slim is thin in an attractive way.",
+      "examples": [
+        "slim hips/legs; She's got a lovely slim figure.; She is tall and slim."
+      ],
+      "image": "assets/images/a1/slim.webp",
+      "audio": "assets/audio/a1/slim.mp3"
+    },
+    {
+      "word": "pay",
+      "phonetic": "peɪ",
+      "pos": "verb",
+      "chinese": "付款",
+      "definition": "to give money to someone because you are buying something from them, or because you owe them money",
+      "examples": [
+        "Helena paid for the meal.; He paid £200 for the tickets.; Would you prefer to pay by cash or card?; Did you pay the telephone bill?; I [don't] have to pay.",
+        "It's free."
+      ],
+      "image": "assets/images/a1/pay.webp",
+      "audio": "assets/audio/a1/pay.mp3"
+    },
+    {
+      "word": "Yes please",
+      "phonetic": "/jɛs pliːz/",
+      "pos": "phrase",
+      "chinese": "是的，请",
+      "definition": "used to accept something politely",
+      "examples": [
+        "\"Would you like a lift home?\" \"Oh yes, please.\"; \"Yes, please, it's an emergency,\" [he] answered."
+      ],
+      "image": "assets/images/a1/yes_please.webp",
+      "audio": "assets/audio/a1/yes_please.mp3"
+    },
+    {
+      "word": "chip",
+      "phonetic": "tʃɪp",
+      "pos": "noun",
+      "chinese": "薯条",
+      "definition": "a long thin piece of potato that is cooked in oil",
+      "examples": [
+        "fish and chips; I like to eat fish and chips."
+      ],
+      "image": "assets/images/a1/chip.webp",
+      "audio": "assets/audio/a1/chip.mp3"
+    },
+    {
+      "word": "wake up",
+      "phonetic": "/weɪk ʌp/",
+      "pos": "phrasal verb",
+      "chinese": "醒来",
+      "definition": "to stop sleeping or to make someone else stop sleeping",
+      "examples": [
+        "Did you wake up at all during the night?; I woke up with a headache.; Come on, wake up - breakfast is ready.; Can you wake us up at 7, please?; I wake up at 8 o'clock."
+      ],
+      "image": "assets/images/a1/wake_up.webp",
+      "audio": "assets/audio/a1/wake_up.mp3"
+    },
+    {
+      "word": "five",
+      "phonetic": "faɪv",
+      "pos": "number",
+      "chinese": "五",
+      "definition": "the number 5",
+      "examples": [
+        "Five, four, three, two, one, blast-off!; I work five days a week.; I will finish work at five o'clock."
+      ],
+      "image": "assets/images/a1/five.webp",
+      "audio": "assets/audio/a1/five.mp3"
+    },
+    {
+      "word": "toilet",
+      "phonetic": "ˈtɔɪ.lət",
+      "pos": "noun",
+      "chinese": "厕所",
+      "definition": "a bowl that you sit on or stand near when you get rid of waste substances from your body",
+      "examples": [
+        "I was on the toilet when the phone rang.; Don't forget to flush the toilet.; The toilet seat was cracked and there was no paper.; I can remember I left it on the table near the toilet."
+      ],
+      "image": "assets/images/a1/toilet.webp",
+      "audio": "assets/audio/a1/toilet.mp3"
+    },
+    {
+      "word": "nine",
+      "phonetic": "naɪn",
+      "pos": "number",
+      "chinese": "九",
+      "definition": "the number 9",
+      "examples": [
+        "a nine-month prison sentence; The birthday girl was wearing a badge with a nine on it.; I start college at half past nine."
+      ],
+      "image": "assets/images/a1/nine.webp",
+      "audio": "assets/audio/a1/nine.mp3"
+    },
+    {
+      "word": "fifteen",
+      "phonetic": "ˌfɪfˈtiːn",
+      "pos": "number",
+      "chinese": "十五",
+      "definition": "the number 15",
+      "examples": [
+        "thirteen, fourteen, fifteen, sixteen; \"How many books were returned?\" \"Fifteen.\"; She's invited fifteen children to her party.; It is fifteen years old and it is in good condition."
+      ],
+      "image": "assets/images/a1/fifteen.webp",
+      "audio": "assets/audio/a1/fifteen.mp3"
+    },
+    {
+      "word": "a lot",
+      "phonetic": "/ə lɒt/",
+      "pos": "phrase",
+      "chinese": "许多",
+      "definition": " a large amount or number of people or things",
+      "examples": [
+        "She eats lots of fruit.; There were a lot of people there.; I've got a lot to do today.; He does lots of travelling in his job.; We met lots of people on holiday."
+      ],
+      "image": "assets/images/a1/a_lot.webp",
+      "audio": "assets/audio/a1/a_lot.mp3"
+    },
+    {
+      "word": "woman",
+      "phonetic": "ˈwʊm.ən",
+      "pos": "noun",
+      "chinese": "女人",
+      "definition": "an adult female person",
+      "examples": [
+        "a 30-year-old woman; She's a really nice woman.; A woman and two men were arrested on the day after the explosion.; Women first got the vote in Britain in 1918.; Your teacher will be a woman."
+      ],
+      "image": "assets/images/a1/woman.webp",
+      "audio": "assets/audio/a1/woman.mp3"
+    },
+    {
+      "word": "seventeen",
+      "phonetic": "ˌsev.ənˈtiːn",
+      "pos": "number",
+      "chinese": "十七",
+      "definition": "the number 17",
+      "examples": [
+        "sixteen, seventeen, eighteen; Is that a seventeen on the front of that bus?; He is seventeen years old."
+      ],
+      "image": "assets/images/a1/seventeen.webp",
+      "audio": "assets/audio/a1/seventeen.mp3"
+    },
+    {
+      "word": "Well done",
+      "phonetic": "/wɛl dʌn/",
+      "pos": "phrase",
+      "chinese": "做得好！",
+      "definition": "used to tell someone how pleased you are about something they have done",
+      "examples": [
+        "\"I passed my exam.\" \"Well done!\""
+      ],
+      "image": "assets/images/a1/well_done.webp",
+      "audio": "assets/audio/a1/well_done.mp3"
+    },
+    {
+      "word": "reading",
+      "phonetic": "ˈriː.dɪŋ",
+      "pos": "noun",
+      "chinese": "阅读",
+      "definition": "the activity or skill of getting information from books, newspapers, etc.",
+      "examples": [
+        "I did a lot of reading on holiday.; Both children find writing difficult but their reading is fine.; The diaries make good bedtime reading.; Also we do some practice task[s] [on] writing, reading, speaking and spelling."
+      ],
+      "image": "assets/images/a1/reading.webp",
+      "audio": "assets/audio/a1/reading.mp3"
+    },
+    {
+      "word": "fourteen",
+      "phonetic": "ˌfɔːˈtiːn",
+      "pos": "number",
+      "chinese": "十四",
+      "definition": "the number 14",
+      "examples": [
+        "twelve, thirteen, fourteen, fifteen; Her baby is fourteen months old.; Several days ago I had my birthday and I am now fourteen."
+      ],
+      "image": "assets/images/a1/fourteen.webp",
+      "audio": "assets/audio/a1/fourteen.mp3"
+    },
+    {
+      "word": "twenty",
+      "phonetic": "ˈtwen.ti",
+      "pos": "number",
+      "chinese": "二十",
+      "definition": "the number 20",
+      "examples": [
+        "nineteen, twenty, twenty-one; space for twenty people; I think we were twenty people."
+      ],
+      "image": "assets/images/a1/twenty.webp",
+      "audio": "assets/audio/a1/twenty.mp3"
+    },
+    {
+      "word": "ten",
+      "phonetic": "ten",
+      "pos": "number",
+      "chinese": "十",
+      "definition": "the number 10",
+      "examples": [
+        "I've invited ten people.; They met ten years ago.; This is only ten minutes [away] by car."
+      ],
+      "image": "assets/images/a1/ten.webp",
+      "audio": "assets/audio/a1/ten.mp3"
+    },
+    {
+      "word": "good evening",
+      "phonetic": "ˌgʊdˈiːv.nɪŋ",
+      "pos": "exclamation",
+      "chinese": "晚上好",
+      "definition": "something you say to greet someone in the evening",
+      "examples": [
+        "Good evening, everyone."
+      ],
+      "image": "assets/images/a1/good_evening.webp",
+      "audio": "assets/audio/a1/good_evening.mp3"
+    },
+    {
+      "word": "get somebody up",
+      "phonetic": "/ɡɛt sʌmbədi ʌp/",
+      "pos": "phrasal verb",
+      "chinese": "叫醒",
+      "definition": "to wake up and get out of bed, or make someone do this",
+      "examples": [
+        "I had to get up at five o'clock this morning.; Could you get the kids up?; My friend gets up early."
+      ],
+      "image": "assets/images/a1/get_somebody_up.webp",
+      "audio": "assets/audio/a1/get_somebody_up.mp3"
+    },
+    {
+      "word": "two",
+      "phonetic": "tuː",
+      "pos": "number",
+      "chinese": "二",
+      "definition": "the number 2",
+      "examples": [
+        "They've got two houses.; I spent two years in Ethiopia.; It's two o'clock.; He'll be two (years old) in February.; I go to college two days per week."
+      ],
+      "image": "assets/images/a1/two.webp",
+      "audio": "assets/audio/a1/two.mp3"
+    },
+    {
+      "word": "would like",
+      "phonetic": "/wʊd laɪk/",
+      "pos": "phrase",
+      "chinese": "想要(礼貌)",
+      "definition": "used to say politely that you want something",
+      "examples": [
+        "I'd like a cup of coffee, please.; I'd like to talk to her myself.; I'd like fish and chips (but not too fat[ty]!)"
+      ],
+      "image": "assets/images/a1/would_like.webp",
+      "audio": "assets/audio/a1/would_like.mp3"
+    },
+    {
+      "word": "be called something",
+      "phonetic": "/biː kɔːld ˈsʌmθɪŋ/",
+      "pos": "phrase",
+      "chinese": "名叫",
+      "definition": "to have a particular name",
+      "examples": [
+        "a boy called Adam; Their latest album is called \"In Rainbows\".; My friend is called Jessica."
+      ],
+      "image": "assets/images/a1/be_called_something.webp",
+      "audio": "assets/audio/a1/be_called_something.mp3"
+    },
+    {
+      "word": "see you later",
+      "phonetic": "/siː juː ˈleɪ.tə/",
+      "pos": "phrase",
+      "chinese": "再见（多种说法）",
+      "definition": "used for saying goodbye to someone you are going to meet again later/soon/tomorrow, etc.",
+      "examples": [
+        "I'll see you later!; See you soon."
+      ],
+      "image": "assets/images/a1/see_you_later.webp",
+      "audio": "assets/audio/a1/see_you_later.mp3"
+    },
+    {
+      "word": "tooth",
+      "phonetic": "tuːθ",
+      "pos": "noun",
+      "chinese": "牙齿",
+      "definition": "one of the hard white objects in the mouth, which are used for biting and chewing",
+      "examples": [
+        "front/back teeth; a broken/missing tooth;  false teeth;  Brush/Clean your teeth thoroughly morning and night.; I had to have a tooth out."
+      ],
+      "image": "assets/images/a1/tooth.webp",
+      "audio": "assets/audio/a1/tooth.mp3"
+    },
+    {
+      "word": "credit card",
+      "phonetic": "ˈkred.ɪtˌkɑːd",
+      "pos": "noun",
+      "chinese": "信用卡",
+      "definition": "a small plastic card that allows you to buy something and pay for it later",
+      "examples": [
+        "I paid by credit card.; The wallet contains all my credit cards and my ticket to London."
+      ],
+      "image": "assets/images/a1/credit_card.webp",
+      "audio": "assets/audio/a1/credit_card.mp3"
+    },
+    {
+      "word": "the radio",
+      "phonetic": "/ðə ˈreɪ.di.əʊ/",
+      "pos": "phrase",
+      "chinese": "广播",
+      "definition": "the programmes that you hear when you listen to the radio",
+      "examples": [
+        "We heard him speaking on the radio this morning.",
+        ";  I listen to the radio in the evening.",
+        "; He likes watching television and listening [to the] radio."
+      ],
+      "image": "assets/images/a1/the_radio.webp",
+      "audio": "assets/audio/a1/the_radio.mp3"
+    },
+    {
+      "word": "die",
+      "phonetic": "daɪ",
+      "pos": "verb",
+      "chinese": "死亡",
+      "definition": "to stop living or existing",
+      "examples": [
+        "Twelve people died in the accident.; She died of/from hunger/cancer/a heart attack/her injuries.; It is a brave person who will die for their beliefs.; Our love will never die.; The pen is very important for me because my grandfather g[a]ve it to me before he died."
+      ],
+      "image": "assets/images/a1/die.webp",
+      "audio": "assets/audio/a1/die.mp3"
+    },
+    {
+      "word": "eight",
+      "phonetic": "eɪt",
+      "pos": "number",
+      "chinese": "八",
+      "definition": "the number 8",
+      "examples": [
+        "She was eight years old when her family moved here.; We've got eight people coming to dinner.; I will arrive at eight in the morning."
+      ],
+      "image": "assets/images/a1/eight.webp",
+      "audio": "assets/audio/a1/eight.mp3"
+    },
+    {
+      "word": "good afternoon",
+      "phonetic": "ˌgʊd.ɑːf.təˈnuːn ",
+      "pos": "exclamation",
+      "chinese": "下午好",
+      "definition": "something you say to someone when you meet them in the afternoon",
+      "examples": [
+        "Good afternoon, Cara."
+      ],
+      "image": "assets/images/a1/good_afternoon.webp",
+      "audio": "assets/audio/a1/good_afternoon.mp3"
+    },
+    {
+      "word": "good morning",
+      "phonetic": "ˌgʊdˈmɔː.nɪŋ",
+      "pos": "exclamation",
+      "chinese": "早上好",
+      "definition": "something you say to greet someone when you meet them in the morning",
+      "examples": [
+        "Good morning, Joe - how are you today?; When you come in clas[s] he say[s] hi good morning every body."
+      ],
+      "image": "assets/images/a1/good_morning.webp",
+      "audio": "assets/audio/a1/good_morning.mp3"
+    },
+    {
+      "word": "in the morning",
+      "phonetic": "/ɪn ðə ˈmɔːnɪŋ/",
+      "pos": "phrase",
+      "chinese": "早晨",
+      "definition": "during the early part of the day",
+      "examples": [
+        "I listen to the radio in the morning.; She goes to the college in the morning and [at] night she goes to work."
+      ],
+      "image": "assets/images/a1/in_the_morning.webp",
+      "audio": "assets/audio/a1/in_the_morning.mp3"
+    },
+    {
+      "word": "bar",
+      "phonetic": "bɑːr",
+      "pos": "noun",
+      "chinese": "酒吧",
+      "definition": "a place where especially alcoholic drinks are sold and drunk, or the area in such a place where the person serving the drinks stands",
+      "examples": [
+        "I met him in a bar in Budapest.; There weren't any free tables, so I sat at the bar.; Why don't you ask the guy behind the bar?; Every day she works in the hotel and [a] bar."
+      ],
+      "image": "assets/images/a1/bar.webp",
+      "audio": "assets/audio/a1/bar.mp3"
+    },
+    {
+      "word": "dollar",
+      "phonetic": "ˈdɒl.ər",
+      "pos": "noun",
+      "chinese": "美元",
+      "definition": "the unit of money used in the US, Canada, Australia, New Zealand and some other countries",
+      "examples": [
+        "Can I borrow ten dollars?; The suitcase was full of dollar bills.; Eugene gave me twenty dollars."
+      ],
+      "image": "assets/images/a1/dollar.webp",
+      "audio": "assets/audio/a1/dollar.mp3"
+    },
+    {
+      "word": "waitress",
+      "phonetic": "ˈweɪ.trəs",
+      "pos": "noun",
+      "chinese": "女服务员",
+      "definition": "a woman who works in a restaurant, bringing food to customers",
+      "examples": [
+        "She's working as a waitress at the moment.; She is a waitress [and] she likes this job."
+      ],
+      "audio": "assets/audio/a1/waitress.mp3"
+    }
+  ]
+}

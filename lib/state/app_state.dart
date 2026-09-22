@@ -39,8 +39,8 @@ class AppState extends ChangeNotifier {
     final savedId = progress.planBookId;
     planBook = books.where((b) => b.id == savedId).isNotEmpty
         ? books.firstWhere((b) => b.id == savedId)
-        : (books.where((b) => b.id == 'cet4').isNotEmpty
-            ? books.firstWhere((b) => b.id == 'cet4')
+        : (books.where((b) => b.id == 'pet').isNotEmpty
+            ? books.firstWhere((b) => b.id == 'pet')
             : (books.isNotEmpty ? books.first : null));
     notifyListeners();
   }

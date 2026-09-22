@@ -95,6 +95,12 @@ flutter:
     - assets/audio/pet/
     - assets/images/ket/
     - assets/audio/ket/
+    - assets/images/a1/
+    - assets/audio/a1/
+    - assets/images/a2/
+    - assets/audio/a2/
+    - assets/images/awl/
+    - assets/audio/awl/
     # Vosk 离线语音识别模型（en-us small，首启自动解压到应用目录）
     - assets/models/
 
