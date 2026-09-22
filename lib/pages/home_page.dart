@@ -6,6 +6,7 @@ import '../state/app_state.dart';
 import '../theme/app_theme.dart';
 import '../widgets/heatmap_card.dart';
 import '../widgets/plan_sheet.dart';
+import '../widgets/sound_check_dialog.dart';
 import 'study/study_session_page.dart';
 import 'word_books_page.dart';
 
@@ -55,27 +56,32 @@ class _TopBar extends StatelessWidget {
     return Row(
       children: [
         // Logo
-        Container(
-          width: 36,
-          height: 36,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xFF4D7CFF), Color(0xFF6C5CE7)],
-            ),
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primary.withValues(alpha: 0.25),
-                blurRadius: 10,
-                offset: const Offset(0, 3),
+        // 长按 = 音效自检面板。设备连不上 adb，没有 logcat 可看，
+        // 出"没声音"这类问题只能靠屏幕上的自检口。入口藏在这里不影响观感。
+        GestureDetector(
+          onLongPress: () => showSoundCheckDialog(context),
+          child: Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF4D7CFF), Color(0xFF6C5CE7)],
               ),
-            ],
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.25),
+                  blurRadius: 10,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            alignment: Alignment.center,
+            child: const Text('L',
+                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900)),
           ),
-          alignment: Alignment.center,
-          child: const Text('L',
-              style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900)),
         ),
         const SizedBox(width: 10),
         const Text('LexVault',
