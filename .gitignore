@@ -56,3 +56,6 @@ app.*.map.json
 /ui_*.xml
 /_brand_backup_*/
 
+# 敏感配置（讯飞 API 密钥等，不提交到远程仓库）
+lib/config/iflytek_config.dart
+
