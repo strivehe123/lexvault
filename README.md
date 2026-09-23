@@ -6,6 +6,8 @@
 
 Flutter 写的英语背单词 App · Android 手机 / 平板 · Windows 桌面 · 内置离线语音识别
 
+**在线演示（免安装，浏览器直接打开）：** <https://strivehe123.github.io/lexvault/>
+
 </div>
 
 ---
@@ -18,7 +20,7 @@ Flutter 写的英语背单词 App · Android 手机 / 平板 · Windows 桌面 �
 - [怎么用：三种方式](#怎么用三种方式)
   - [方式一：Android 手机 / 平板（推荐）](#方式一android-手机--平板推荐)
   - [方式二：Windows 电脑](#方式二windows-电脑)
-  - [方式三：浏览器打开网页版](#方式三浏览器打开网页版当前不支持)
+  - [方式三：浏览器打开网页版](#方式三浏览器直接打开网页演示版已上线零安装)
 - [学习流程说明](#学习流程说明)
 - [语音识别（可选配置）](#语音识别可选配置)
 - [从源码构建](#从源码构建)
@@ -178,36 +180,38 @@ APK 拖进去即可，功能和手机完全一致。
 
 ---
 
-### 方式三：浏览器打开（网页版，当前不支持）
+### 方式三：浏览器直接打开（网页演示版，**已上线，零安装**）
 
-**结论：现在这个仓库不能直接 `flutter build web`，会编译失败。** 原因是硬性的：
+👉 **<https://strivehe123.github.io/lexvault/>**
 
-1. 离线语音用的 `vosk_flutter` 依赖 `dart:ffi`（直接调原生库），而**浏览器里没有 FFI**，
-   编译阶段就会报错；
-2. 仓库里也**没有 `web/` 目录**，还没生成网页端脚手架。
+不想装 App 的话，把上面这个链接发给对方就行 —— 手机、平板、电脑浏览器都能开，不用注册。
 
-想让它跑在浏览器里，需要做三件事：
+| | 网页版 | Android 版 |
+|---|---|---|
+| 安装 | **不用装**，打开链接就用 | 装 APK |
+| 看图 / 发音 / 拼写 | ✅ | ✅ |
+| 跟读识别 | 浏览器内置语音识别（Chrome / Edge / Safari）；不支持的浏览器（如 Firefox）自动进入**演示模式**，松手即判定成功，保证流程能走通 | 离线 Vosk，断网也能用 |
+| 学习进度 | 存在浏览器本地（清缓存 / 换浏览器会丢） | 存在设备上，离线可靠 |
+| 加载速度 | 首次要下几 MB 前端资源，图片按需加载 | 装完就在本地 |
+
+网页版适合**快速体验和给别人演示**；日常背词还是推荐装 Android 版。
+
+自己构建网页版：
 
 ```bash
-# 1) 生成 web 脚手架（不会动现有代码）
-flutter create --platforms=web .
+flutter build web --release --base-href /lexvault/ --no-web-resources-cdn
+# --no-web-resources-cdn 很关键：默认 CanvasKit 从 gstatic CDN 取，国内打不开会白屏
 
-# 2) 把语音服务拆成「条件导入」的两份实现：
-#    speech_service_native.dart（用 vosk）/ speech_service_web.dart（直接返回「不可用」）
-#    浏览器端只保留 TTS 朗读，跟读判定降级为「点击跳过」
-#    参考写法：import 'speech_service_native.dart'
-#             if (dart.library.js_interop) 'speech_service_web.dart';
-
-# 3) 精简素材（866 MB 在浏览器首屏加载不可接受），再构建
-flutter build web --release
+# 想本地预览
+python -m http.server 8080 -d build/web
 ```
 
-网页端还有两个先天限制：
+部署是自动的：push 到 `main` 后由 `.github/workflows/deploy-web.yml` 构建并发布到 GitHub Pages。
 
-- 进度存在浏览器 `localStorage` 里，换浏览器 / 清缓存就没了，**无法跟着你走**
-- 素材要先下载才看得到图，第一次打开会很慢
-
-**所以：想在手机上随时背，用方式一；想在电脑前背，用模拟器或桌面版。**
+> 技术说明：Web 平台**不支持 `dart:ffi`**，而离线识别库 `vosk_flutter` 依赖它，
+> 所以 `lib/services/speech_service.dart` 做了一层条件导出 ——
+> 原生用 `speech_service_io.dart`（Vosk / 讯飞），Web 用 `speech_service_web.dart`（浏览器语音识别 + 演示模式）。
+> 两个文件公开 API 一致，原生端行为与拆分前完全相同。
 
 ---
 

@@ -15,9 +15,9 @@ class TtsService {
   String? _lastError;
 
   void _log(String msg) {
-    try {
-      _methodCh.invokeMethod('log', msg);
-    } catch (_) {}
+    // Web 上没有这个原生通道，invokeMethod 会**异步**抛 MissingPluginException。
+    // 原来只 catch 同步异常，异步错误会漏出去变成"未处理的异步错误"，在浏览器里刷屏。
+    _methodCh.invokeMethod('log', msg).catchError((Object _) => null);
   }
 
   Future<void> _createTts() async {

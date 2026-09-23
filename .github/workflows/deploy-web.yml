@@ -1,0 +1,72 @@
+name: Deploy web demo (GitHub Pages)
+
+# 把 Flutter Web 构建结果发布到 https://strivehe123.github.io/lexvault/
+# 触发：main 分支上动到代码 / 网页壳 / 素材 / 依赖时自动部署；也可以在 Actions 页手动触发。
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'lib/**'
+      - 'web/**'
+      - 'assets/**'
+      - 'pubspec.yaml'
+      - 'pubspec.lock'
+      - '.github/workflows/deploy-web.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只保留一次部署，避免并发写坏 Pages
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.38.3'
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # --no-web-resources-cdn：把 CanvasKit / 字体放进产物本地提供。
+      # 默认走 gstatic CDN，国内打不开，会直接白屏。
+      # --no-wasm-dry-run：flutter_tts 的 web 实现有一处 js_interop 转换写法
+      # 不兼容 wasm，会刷一屏警告；我们只用 JS 产物，直接关掉这项检查。
+      - name: Build web
+        run: flutter build web --release --base-href "/lexvault/" --no-web-resources-cdn --no-wasm-dry-run
+
+      # Vosk 离线模型只有原生端用（走 dart:ffi），Web 版永远用不到，省 40MB。
+      - name: Drop desktop-only Vosk model
+        run: |
+          rm -rf build/web/assets/assets/models
+          echo "--- 站点体积 ---"
+          du -sh build/web
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

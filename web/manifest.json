@@ -1,0 +1,35 @@
+{
+    "name": "LexVault 单词库",
+    "short_name": "LexVault",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#4D7CFF",
+    "theme_color": "#4D7CFF",
+    "description": "看图记词 · 跟读识别 · 拼写闯关。5 本词书 7369 词，进度本地保存。",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
