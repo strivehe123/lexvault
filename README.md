@@ -6,7 +6,12 @@
 
 Flutter 写的英语背单词 App · Android 手机 / 平板 · Windows 桌面 · 内置离线语音识别
 
-**在线演示（免安装，浏览器直接打开）：** <https://strivehe123.github.io/lexvault/>
+**在线演示（免安装，浏览器直接打开）：**
+
+| 线路 | 地址 | 说明 |
+|---|---|---|
+| 🚀 **国内线路（推荐）** | **<https://lexvault.app.workbuddy.host/>** | 腾讯云国内节点，国内直连、秒开，不用代理 |
+| 🌐 GitHub 线路（备用） | <https://strivehe123.github.io/lexvault/> | GitHub Pages，国内部分网络需要代理 |
 
 </div>
 
@@ -182,9 +187,12 @@ APK 拖进去即可，功能和手机完全一致。
 
 ### 方式三：浏览器直接打开（网页演示版，**已上线，零安装**）
 
-👉 **<https://strivehe123.github.io/lexvault/>**
+| 线路 | 地址 | 说明 |
+|---|---|---|
+| 🚀 **国内线路（推荐）** | **<https://lexvault.app.workbuddy.host/>** | 腾讯云国内节点，国内直连、打开快 |
+| 🌐 GitHub 线路（备用） | <https://strivehe123.github.io/lexvault/> | GitHub Pages，国外或已配代理时用 |
 
-不想装 App 的话，把上面这个链接发给对方就行 —— 手机、平板、电脑浏览器都能开，不用注册。
+不用注册，把链接发给对方就行 —— 手机、平板、电脑浏览器都能开。两条线路跑的是**同一份网页产物**，内容完全一样。
 
 | | 网页版 | Android 版 |
 |---|---|---|
